@@ -15,8 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-  <!-- Dashboard -->
+    <!-- Dashboard -->
     <string name="header_category_custom">ROM Control</string>
     <string name="abc_settings_title">ABC Settings</string>
     <string name="abc_settings_summary">Customize ROM features</string>
@@ -24,7 +23,9 @@
     <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
     <string name="local_backup_password_title">Desktop backup password</string>
 
-<!-- Device Info Settings -->
+    <!-- Dev Options Enabled by Default -->
+    <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
+
     <!-- ROM version -->
     <string name="rom_version">ABC version</string>
     <string name="rom_version_default">Unknown</string>
