@@ -15,8 +15,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-<!-- Custom Settings -->    
+
   <!-- Dashboard -->
     <string name="header_category_custom">ROM Control</string>
+
+    <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
+    <string name="local_backup_password_title">Desktop backup password</string>
 
 </resources>
