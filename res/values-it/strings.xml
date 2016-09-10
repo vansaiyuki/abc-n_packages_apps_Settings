@@ -3040,7 +3040,7 @@
     <string name="battery_saver_on_summary" msgid="9072203872401530722">"On/<xliff:g id="ID_1">%1$s</xliff:g>"</string>
     <string name="battery_saver_off_summary" msgid="8309471955051162327">"Off/<xliff:g id="ID_1">%1$s</xliff:g>"</string>
     <string name="battery_saver_desc_turn_on_auto_never" msgid="6715896635178578813">"Non attivare mai automaticamente"</string>
-    <string name="battery_saver_desc_turn_on_auto_pct" msgid="7472323223085636533">"Attiva automaticamente al %1$s%% di batteria"</string>
+    <string name="battery_saver_desc_turn_on_auto_pct" msgid="7472323223085636533">"Attiva automaticamente al %1$s di batteria"</string>
     <string name="not_battery_optimizing" msgid="5362861851864837617">"Ottimizzazione della batteria non in uso"</string>
     <string name="lockscreen_remote_input" msgid="969871538778211843">"Impedisci di digitare risposte o altro testo nelle notifiche quando il dispositivo è bloccato"</string>
     <string name="default_spell_checker" msgid="8506899870026026660">"Controllo ortografico predef."</string>
