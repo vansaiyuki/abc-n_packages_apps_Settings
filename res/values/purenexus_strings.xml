@@ -35,7 +35,7 @@
 
 <!-- Device Info Settings -->
     <!-- Nexus version -->
-    <string name="nexus_version">PureNexus version</string>
+    <string name="nexus_version">PNmod version</string>
     <string name="nexus_version_default">Unknown</string>
     <!-- Vendor version -->
     <string name="vendor_version">Vendor version</string>
