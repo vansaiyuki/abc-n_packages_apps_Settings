@@ -130,6 +130,11 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 import com.pure.settings.PureSettings;
 
+import com.pure.settings.fragments.FlingSettings;
+import com.pure.settings.fragments.NavbarSettings;
+import com.pure.settings.fragments.SmartbarSettings;
+import com.pure.settings.fragments.PulseSettings;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -350,7 +355,11 @@ public class SettingsActivity extends SettingsDrawerActivity
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
             PureSettings.class.getName(),
-            AmbientSettings.class.getName()
+            AmbientSettings.class.getName(),
+            NavbarSettings.class.getName(),
+            FlingSettings.class.getName(),
+            SmartbarSettings.class.getName(),
+            PulseSettings.class.getName()
     };
 
 

@@ -105,4 +105,6 @@
     <string name="power_notifications_ringtone_title">Notification sound</string>
     <!-- Sound settings, charging sounds label for ringtone == none -->
     <string name="power_notifications_ringtone_silent">Silent</string>
+    <!-- Navigation -->
+    <string name="navigation_category">Navigation</string>
 </resources>
