@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="header_category_custom">Controllo sistema</string>
+    <string name="header_category_custom">Controlli aggiuntivi</string>
     <string name="custom_settings_title">Avanzate</string>
 
 </resources>
