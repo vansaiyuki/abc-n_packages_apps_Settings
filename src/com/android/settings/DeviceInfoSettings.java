@@ -52,8 +52,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
     private static final String LOG_TAG = "DeviceInfoSettings";
 
-    private static final String KEY_MANUAL = "manual";
-    private static final String KEY_REGULATORY_INFO = "regulatory_info";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
@@ -64,7 +62,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_SECURITY_PATCH = "security_patch";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_NEXUS_VERSION = "nexus_version";
     private static final String KEY_VENDOR_VERSION = "vendor_version";
@@ -147,27 +144,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove Baseband version if wifi-only device
         if (Utils.isWifiOnly(getActivity())) {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
-        }
-
-        // Dont show feedback option if there is no reporter.
-        if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(getActivity()))) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_FEEDBACK));
-        }
-
-        /*
-         * Settings is a generic app and should not contain any device-specific
-         * info.
-         */
-        // Remove manual entry if none present.
-        removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
-
-        // Remove regulatory information if none present.
-        final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
-        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
-            Preference pref = findPreference(KEY_REGULATORY_INFO);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
         }
     }
 
@@ -266,8 +242,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                         Toast.LENGTH_LONG);
                 mDevHitToast.show();
             }
-        } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
-            sendFeedback();
         }
         return super.onPreferenceTreeClick(preference);
     }
@@ -311,16 +285,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         } catch (RuntimeException e) {
             // No recovery
         }
-    }
-
-    private void sendFeedback() {
-        String reporterPackage = DeviceInfoUtils.getFeedbackReporterPackage(getActivity());
-        if (TextUtils.isEmpty(reporterPackage)) {
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_BUG_REPORT);
-        intent.setPackage(reporterPackage);
-        startActivityForResult(intent, 0);
     }
 
     private static class SummaryProvider implements SummaryLoader.SummaryProvider {
@@ -377,10 +341,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 // Remove Baseband version if wifi-only device
                 if (Utils.isWifiOnly(context)) {
                     keys.add((KEY_BASEBAND_VERSION));
-                }
-                // Dont show feedback option if there is no reporter.
-                if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(context))) {
-                    keys.add(KEY_DEVICE_FEEDBACK);
                 }
                 return keys;
             }
