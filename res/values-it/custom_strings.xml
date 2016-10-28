@@ -18,4 +18,8 @@
     <string name="header_category_custom">Controlli aggiuntivi</string>
     <string name="custom_settings_title">Avanzate</string>
 
+    <!-- Battery saver color -->
+    <string name="battery_saver_color_title">Colore di avvertimento</string>
+    <string name="battery_saver_color_summary">Colora le barre di sistema se il risparmio batteria è attivo</string>
+
 </resources>
