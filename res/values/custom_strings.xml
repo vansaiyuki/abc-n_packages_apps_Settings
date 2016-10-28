@@ -107,4 +107,8 @@
     <string name="power_notifications_ringtone_silent">Silent</string>
     <!-- Navigation -->
     <string name="navigation_category">Navigation</string>
+
+    <!-- Battery saver color -->
+    <string name="battery_saver_color_title">Warning color</string>
+    <string name="battery_saver_color_summary">Enable colored bars when battery saver is activated</string>
 </resources>
