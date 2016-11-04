@@ -52,7 +52,7 @@
                 android:title="@string/notification_volume_option_title" />
 
         <!-- Increasing ring -->
-        <com.android.settings.preference.SystemSettingSwitchPreference
+        <com.pure.settings.preferences.SecureSettingSwitchPreference
                 android:key="increasing_ring"
                 android:title="@string/increasing_ring_volume_option_title" />
 
