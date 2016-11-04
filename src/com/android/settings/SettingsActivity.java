@@ -92,7 +92,6 @@ import com.android.settings.inputmethod.SpellCheckersSettings;
 import com.android.settings.inputmethod.UserDictionaryList;
 import com.android.settings.localepicker.LocaleListEditor;
 import com.android.settings.location.LocationSettings;
-import com.android.settings.nexus.AmbientSettings;
 import com.android.settings.nfc.AndroidBeam;
 import com.android.settings.nfc.PaymentSettings;
 import com.android.settings.notification.AppNotificationSettings;
@@ -128,6 +127,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
+import com.pure.settings.AmbientSettings;
 import com.pure.settings.PureSettings;
 
 import com.pure.settings.fragments.FlingSettings;

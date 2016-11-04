@@ -2726,18 +2726,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.nexus.AmbientSettings" />
+                android:value="com.pure.settings.AmbientSettings" />
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
 
-        <activity-alias android:name=".nexus.AmbientSettings"
+        <activity-alias android:name=".pure.AmbientSettings"
                   android:label="@string/doze_title"
                   android:clearTaskOnLaunch="true"
                   android:exported="true"
                   android:targetActivity="Settings$AmbientDisplaySettingsActivity">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.nexus.AmbientSettings" />
+                android:value="com.pure.settings.AmbientSettings" />
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity-alias>

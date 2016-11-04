@@ -29,7 +29,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -61,7 +60,6 @@ import java.util.List;
 import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
-import static android.provider.Settings.Secure.DOZE_ENABLED;
 import static android.provider.Settings.Secure.WAKE_GESTURE_ENABLED;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
@@ -81,7 +79,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
-    private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
@@ -98,7 +95,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
     private SwitchPreference mLiftToWakePreference;
-    private PreferenceScreen mDozeFragement;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
@@ -140,12 +136,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mLiftToWakePreference.setOnPreferenceChangeListener(this);
         } else {
             removePreference(KEY_LIFT_TO_WAKE);
-        }
-
-        mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
-        if (!isDozeAvailable(activity)) {
-            getPreferenceScreen().removePreference(mDozeFragement);
-            mDozeFragement = null;
         }
 
         if (isTapToWakeAvailable(getResources())) {
@@ -264,15 +254,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return sensors != null && sensors.getDefaultSensor(Sensor.TYPE_WAKE_GESTURE) != null;
     }
 
-    private static boolean isDozeAvailable(Context context) {
-        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
-        if (TextUtils.isEmpty(name)) {
-            name = context.getResources().getString(
-                    com.android.internal.R.string.config_dozeComponent);
-        }
-        return !TextUtils.isEmpty(name);
-    }
-
     private static boolean isTapToWakeAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
     }
@@ -329,13 +310,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         updateState();
-
-        boolean dozeEnabled = Settings.Secure.getInt(
-                getContentResolver(), Settings.Secure.DOZE_ENABLED, 1) != 0;
-        if (mDozeFragement != null) {
-            mDozeFragement.setSummary(dozeEnabled
-                    ? R.string.summary_doze_enabled : R.string.summary_doze_disabled);
-        }
 
         final long currentTimeout = Settings.System.getLong(getActivity().getContentResolver(),
                 SCREEN_OFF_TIMEOUT, FALLBACK_SCREEN_TIMEOUT_VALUE);
@@ -538,9 +512,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isLiftToWakeAvailable(context)) {
                         result.add(KEY_LIFT_TO_WAKE);
-                    }
-                    if (!isDozeAvailable(context)) {
-                        result.add(KEY_DOZE_FRAGMENT);
                     }
                     if (!RotationPolicy.isRotationLockToggleVisible(context)) {
                         result.add(KEY_AUTO_ROTATE);
