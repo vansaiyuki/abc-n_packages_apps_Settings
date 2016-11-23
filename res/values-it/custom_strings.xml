@@ -15,8 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="header_category_custom">Controlli aggiuntivi</string>
+    <string name="header_category_custom">Controllo rom</string>
     <string name="custom_settings_title">Avanzate</string>
+    <string name="abc_settings_summary">Impostazioni aggiuntive</string>
 
     <!-- Battery saver color -->
     <string name="battery_saver_color_title">Colore di avvertimento</string>

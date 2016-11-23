@@ -2713,8 +2713,8 @@
                 android:value="com.android.settings.category.custom" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.pure.settings.PureSettings" />
-            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
-                android:value="true" />
+            <meta-data android:name="com.android.settings.summary"
+                android:resource="@string/abc_settings_summary" />
         </activity>
 
         <!-- Ambient Display settings activity. -->
