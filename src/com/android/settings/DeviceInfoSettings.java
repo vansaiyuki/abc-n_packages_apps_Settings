@@ -62,7 +62,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_SECURITY_PATCH = "security_patch";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_ROM_VERSION = "rom_version";
     private static final String KEY_VENDOR_VERSION = "vendor_version";
 
@@ -145,15 +144,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
 
-        // Dont show feedback option if there is no reporter.
-        if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(getActivity()))) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_FEEDBACK));
-        }
-
-        /*
-         * Settings is a generic app and should not contain any device-specific
-         * info.
-         */
     }
 
     @Override
@@ -258,8 +248,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                         + "queryIntentActivities() returns empty" );
                 return true;
             }
-        } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
-            sendFeedback();
         }
         return super.onPreferenceTreeClick(preference);
     }
@@ -313,16 +301,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         } catch (RuntimeException e) {
             // No recovery
         }
-    }
-
-    private void sendFeedback() {
-        String reporterPackage = DeviceInfoUtils.getFeedbackReporterPackage(getActivity());
-        if (TextUtils.isEmpty(reporterPackage)) {
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_BUG_REPORT);
-        intent.setPackage(reporterPackage);
-        startActivityForResult(intent, 0);
     }
 
     private static class SummaryProvider implements SummaryLoader.SummaryProvider {
@@ -379,10 +357,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 // Remove Baseband version if wifi-only device
                 if (Utils.isWifiOnly(context)) {
                     keys.add((KEY_BASEBAND_VERSION));
-                }
-                // Dont show feedback option if there is no reporter.
-                if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(context))) {
-                    keys.add(KEY_DEVICE_FEEDBACK);
                 }
                 return keys;
             }

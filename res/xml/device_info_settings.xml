@@ -25,11 +25,6 @@
                 android:fragment="com.android.settings.deviceinfo.Status">
         </PreferenceScreen>
 
-        <!-- Feedback on the device -->
-        <PreferenceScreen android:key="device_feedback"
-                android:title="@string/device_feedback">
-        </PreferenceScreen>
-
         <!-- Device hardware model -->
         <com.android.settings.DividerPreference
                 android:key="device_model"
