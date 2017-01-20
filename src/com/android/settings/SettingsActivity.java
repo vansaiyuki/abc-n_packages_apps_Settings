@@ -245,8 +245,6 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.DataUsageSummaryActivity.class.getName(),
             Settings.SimSettingsActivity.class.getName(),
             Settings.WirelessSettingsActivity.class.getName(),
-            //custom_section
-            AbcSettings.class.getName(),
             //device_section
             Settings.HomeSettingsActivity.class.getName(),
             Settings.SoundSettingsActivity.class.getName(),
@@ -267,6 +265,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.AccessibilitySettingsActivity.class.getName(),
             Settings.PrintSettingsActivity.class.getName(),
             Settings.PaymentSettingsActivity.class.getName(),
+            //custom_section
+            Settings.AbcSettingsActivity.class.getName(),
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -366,6 +366,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName(),
+            //custom
             AbcSettings.class.getName(),
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
