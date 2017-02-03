@@ -374,7 +374,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
             PulseSettings.class.getName(),
-            RunningServices.class.getName(),
+            RunningServices.class.getName()
     };
 
 
