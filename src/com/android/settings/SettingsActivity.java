@@ -141,6 +141,7 @@ import com.abc.settings.fragments.FlingSettings;
 import com.abc.settings.fragments.NavbarSettings;
 import com.abc.settings.fragments.SmartbarSettings;
 import com.abc.settings.fragments.PulseSettings;
+import com.abc.settings.fragments.NotificationDrawerSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -375,6 +376,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             SmartbarSettings.class.getName(),
             PulseSettings.class.getName(),
             RunningServices.class.getName()
+			NotificationDrawerSettings.class.getName(),
     };
 
 
